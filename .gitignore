@@ -1,0 +1,61 @@
+############################################
+# OS / Editor
+############################################
+.DS_Store
+Thumbs.db
+
+.vs/
+.idea/
+*.iml
+*.vcxproj.user
+############################################
+# Build outputs (Qt / VS / CMake 常见)
+############################################
+Debug/
+Release/
+x64/
+x86/
+build*/
+build-*/
+out/
+
+# VS/MSVC
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.ipdb
+*.iobj
+*.tlog
+*.log
+*.pch
+*.suo
+*.user
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.VC.opendb
+
+############################################
+# Qt / qmake / QtCreator / QtVS
+############################################
+*.pro.user
+*.pro.user.*
+*.qmake.stash
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+*.autosave
+
+
+############################################
+# Node.js
+############################################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
