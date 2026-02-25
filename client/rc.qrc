@@ -53,5 +53,10 @@
         <file>res/voice_chat_hover.png</file>
         <file>res/voice_chat_normal.png</file>
         <file>res/voice_chat_press.png</file>
+        <file>res/ice.png</file>
+        <file>res/loading2.gif</file>
+        <file>res/readed.png</file>
+        <file>res/send_fail.png</file>
+        <file>res/unread.png</file>
     </qresource>
 </RCC>

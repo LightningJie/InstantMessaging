@@ -1,7 +1,9 @@
-﻿#ifndef SINGLETON_H
+#ifndef SINGLETON_H
 #define SINGLETON_H
 
 #include <global.h>
+#include <iostream>
+#include <mutex>
 template <typename T>
 /*
     单例模式模板类
@@ -27,7 +29,7 @@ public:
     }
 
     ~Singleton(){
-        std::cout<<"this is singleton destruet"<<std::endl;
+        //std::cout<<"this is singleton destruet"<<std::endl;
     }
 
 

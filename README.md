@@ -34,5 +34,4 @@
 
 ------
 
-需要更详细文档可以联系我：
-<img src="./images/2b35f95debd6d6799aaf659fb1c10f0b.jpg" alt="2b35f95debd6d6799aaf659fb1c10f0b" style="zoom:25%;" />
+![1](./images/1.png)

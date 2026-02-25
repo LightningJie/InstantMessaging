@@ -29,10 +29,11 @@ private:
     QMap<TipErr, QString> _tip_errs;//错误的历史记录
     int _uid;
     QString _token;
+    std::shared_ptr<ServerInfo> _si;
 signals:
     void switchRegister();
     void switchReset();
-    void sig_connect_tcp(ServerInfo);
+    void sig_connect_tcp(std::shared_ptr<ServerInfo>);
     void sig_swich_chatdlg();
 private slots:
     void on_login_btn_clicked();

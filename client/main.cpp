@@ -5,6 +5,7 @@
 #include <iostream>
 #include <QDebug>
 #include "global.h"
+#include "tcpmgr.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -27,6 +28,8 @@ int main(int argc, char *argv[])
     QString gate_host=settings.value("GateServer/host").toString();
     QString gate_port=settings.value("GateServer/port").toString();
     gate_url_prefix="http://"+gate_host+":"+gate_port;
+
+    TcpThread tcpthread;
     MainWindow w;
     w.show();
     return a.exec();

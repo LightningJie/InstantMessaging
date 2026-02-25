@@ -5,6 +5,7 @@
 #include <QPaintEngine>
 #include "httpmgr.h"
 #include "tcpmgr.h"
+#include <QRegularExpression>
 LoginDialog::LoginDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::LoginDialog)
@@ -37,24 +38,36 @@ LoginDialog::~LoginDialog()
 
 void LoginDialog::initHttpHandlers()
 {
-    _handlers.insert(ReqId::ID_LOGIN_USER,[this](QJsonObject jsonObj){
-        int error=jsonObj["error"].toInt();
-        if(error!=ErrorCodes::SUCCESS){
+    //注册获取登录回包逻辑
+    _handlers.insert(ReqId::ID_LOGIN_USER, [this](QJsonObject jsonObj){
+        int error = jsonObj["error"].toInt();
+        if(error != ErrorCodes::SUCCESS){
             showTip(tr("参数错误"),false);
             enableBtn(true);
-            return ;
+            return;
         }
-        auto email =jsonObj["email"].toString();
-        ServerInfo si;
-        si.Uid=jsonObj["uid"].toInt();
-        si.Host=jsonObj["host"].toString();
-        si.Port=jsonObj["port"].toString();
-        si.Token=jsonObj["token"].toString();
+        auto email = jsonObj["email"].toString();
 
-        _uid=si.Uid;
-        _token=si.Token;
-        qDebug()<<"email is"<<email <<" uid is "<<_uid<< " host is "<<si.Host <<" Port is " <<si.Port<<" Token is" <<si.Token;
-        emit sig_connect_tcp(si);
+        //发送信号通知tcpMgr发送长链接
+        _si = std::make_shared<ServerInfo>();
+
+        _si->_uid = jsonObj["uid"].toInt();
+        _si->_chat_host = jsonObj["chathost"].toString();
+        _si->_chat_port = jsonObj["chatport"].toString();
+        _si->_token = jsonObj["token"].toString();
+
+        _si->_res_host = jsonObj["reshost"].toString();
+        _si->_res_port = jsonObj["resport"].toString();
+
+
+        qDebug()<< "email is " << email << " uid is " << _si->_uid <<" chat host is "
+                << _si->_chat_host << " chat port is "
+                << _si->_chat_port << " token is " << _si->_token
+                << " res host is " << _si->_res_host
+                << " res port is " << _si->_res_port;
+        emit sig_connect_tcp(_si);
+       // qDebug() << "send thread is " << QThread::currentThread();
+       // emit sig_test();
     });
 }
 

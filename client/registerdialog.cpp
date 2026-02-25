@@ -3,6 +3,7 @@
 #include "global.h"
 #include "httpmgr.h"
 #include <QDebug>
+#include <QRegularExpression>
 RegisterDialog::RegisterDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::RegisterDialog),_countdown(5)

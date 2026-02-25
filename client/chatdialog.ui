@@ -78,7 +78,7 @@
           <number>0</number>
          </property>
          <property name="bottomMargin">
-          <number>0</number>
+          <number>10</number>
          </property>
          <item alignment="Qt::AlignHCenter">
           <widget class="QLabel" name="side_head_lb">
@@ -133,6 +133,9 @@
             </size>
            </property>
           </widget>
+         </item>
+         <item>
+          <widget class="StateWidget" name="side_settings_lb" native="true"/>
          </item>
         </layout>
        </widget>
@@ -275,10 +278,11 @@
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="ChatPage" name="chat_page"/>
      <widget class="FriendInfoPage" name="friend_info_page"/>
+     <widget class="UserInfoPage" name="user_info_page"/>
      <widget class="ApplyFriendPage" name="friend_apply_page"/>
     </widget>
    </item>
@@ -332,6 +336,12 @@
    <class>FriendInfoPage</class>
    <extends>QWidget</extends>
    <header>friendinfopage.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>UserInfoPage</class>
+   <extends>QWidget</extends>
+   <header>userinfopage.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
